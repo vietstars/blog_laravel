@@ -106,3 +106,6 @@ config app.php -> ASSET_URL = '/public'
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^ index.php [L]
+
+storage:
+	storage/folder -> storage/app/public/folder/
