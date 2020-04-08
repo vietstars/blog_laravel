@@ -88,3 +88,21 @@ blade template
 1.-parent @yield('content')
 
 2.-inherit @extends('layouts.app') @section('content') ... @endsection
+
+/****************/
+## Localhost
+
+root server.php -> index.php
+config app.php -> ASSET_URL = '/public'
+
+.htaccess
+
+	Options +FollowSymLinks -Indexes
+	RewriteEngine On
+
+	RewriteCond %{HTTP:Authorization} .
+	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [L]
